@@ -10,6 +10,11 @@
         }
     ],
     "require": {},
+    "autoload": {
+        "psr-4": {
+            "Hexters\\Rolevel\\": "src/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -18,11 +23,6 @@
             "aliases": {
                 
             }
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "Hexters\\Rolevel\\": "src/"
         }
     }
 }
