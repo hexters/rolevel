@@ -1,6 +1,6 @@
 <?php 
     
-namespace Hexters\Providers\Rolevel;
+namespace Hexters\Rolevel\Providers;
 use Hexters\Rolevel\Helpers\Permission;
 
 use Illuminate\Support\ServiceProvider;
