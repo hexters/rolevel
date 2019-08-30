@@ -7,18 +7,22 @@ class Menu extends Base {
     public function findKeys ($menus = []) {
         
         $keys = [];
+        $subKeys = [];
         foreach($menus as $menu) {
             if(isset($menu['uniqkey'])) {
                 $keys[] = $key['uniqkey'];
             }
 
             if(isset($menu['childs'])) {
-                if($this->keys($menu['childs'])) {
-                    $keys[] = $this->keys($menu['childs']);
+                if($this->findKeys($menu['childs'])) {
+                    foreach($this->findKeys($menu['childs']) as $sub) {
+                        $subKeys[] = $sub;
+                    }
                 }
             }
         }
-        return count($keys) > 0 ? $keys : null;
+        $result = array_merge($keys, $subKeys);
+        return count($result) > 0 ? $result : null;
     }
 
     public function keys() {

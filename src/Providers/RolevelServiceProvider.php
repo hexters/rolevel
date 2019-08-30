@@ -5,16 +5,11 @@ use Hexters\Rolevel\Helpers\Permission;
 
 use Illuminate\Support\ServiceProvider;
 
+use Gate;
 use App\User;
 
 class RolevelServiceProvider extends ServiceProvider {
     
-    protected $permission;
-
-    public function __construct(Permission $permission) {
-        $this->permission = $permission;
-    }
-
     /**
      * Register any application services.
      *
@@ -47,13 +42,16 @@ class RolevelServiceProvider extends ServiceProvider {
         /**
          * Gate for access permission
          */
-        if(is_array($this->permission->keys())) {
-            foreach($this->permission->keys() as $key) {
-                Gate::define($key, function(User $user) use ($slug) {
-                    foreach($user->roles as $role) {
-                        return in_array($key, $role->permissions->toArray());
-                    }
-                });
+        if(file_exists(app_path('/Roles/menu_and_permissions.php'))) {
+            $permission = new Permission;
+            if(is_array($permission->keys())) {
+                foreach($permission->keys() as $key) {
+                    Gate::define($key, function(User $user) use ($key) {
+                        foreach($user->roles as $role) {
+                            return in_array($key, $role->permissions->toArray());
+                        }
+                    });
+                }
             }
         }
 
