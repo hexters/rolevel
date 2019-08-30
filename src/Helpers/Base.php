@@ -1,6 +1,6 @@
 <?php 
 
-namespace Hexters\Rolevel;
+namespace Hexters\Rolevel\Helpers;
 
 class Base {
 
