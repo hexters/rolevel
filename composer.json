@@ -10,19 +10,19 @@
         }
     ],
     "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hexters\\Rolevel\\Providers\\RolevelServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
     "autoload": {
         "psr-4": {
             "Hexters\\Rolevel\\": "src/"
-        },
-        "extra": {
-            "laravel": {
-                "providers": [
-                    "Hexters\\Rolevel\\Providers\\RolevelServiceProvider"
-                ],
-                "aliases": {
-                    
-                }
-            }
         }
     }
 }
