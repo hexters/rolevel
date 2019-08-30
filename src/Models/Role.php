@@ -16,4 +16,9 @@ class Role extends Model
         'type',
         'permissions'
     ];
+
+    protected $casts = [
+        'permissions' => 'collection'
+    ];
 }
+

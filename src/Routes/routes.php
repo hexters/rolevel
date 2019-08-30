@@ -1,8 +1,10 @@
 <?php 
 
-    Route::namespace('Hexters\Rolevel\Controllers')
-        ->prefix(config('rolevel.admin_prefix_link'))
-        // ->middleware([config('rolevel.auth_middleware')])
-        ->group(function() {
+    Route::group([ 
+            'middleware' => ['web', config('rolevel.auth_middleware')],
+            'namespace' => 'Hexters\Rolevel\Controllers',
+            'prefix' => config('rolevel.admin_prefix_link')
+        ], 
+        function() {
             Route::get('/roles', 'RolevelAssignController@assign');
         });

@@ -2,6 +2,11 @@
 
     return [
 
+
+        'models' => [
+            'roles' => App\Role::class
+        ],
+
         /*
          | --------------------------------------
          | Assign configuration menu

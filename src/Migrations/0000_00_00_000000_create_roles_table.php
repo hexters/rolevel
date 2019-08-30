@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Hexters\Rolevel\Helpers\Permission;
+
+use App\Role;
 
 class CreateRolesTable extends Migration
 {
@@ -23,6 +26,15 @@ class CreateRolesTable extends Migration
             $table->string('type')->nullable();
             $table->timestamps();
         });
+
+        $permission = new Permission;
+        Role::create([
+            'name' => 'Superadmin',
+            'slug' => 'superadmin',
+            'description' => '',
+            'permissions' => $permission->keys()
+        ]);
+
     }
 
     /**
