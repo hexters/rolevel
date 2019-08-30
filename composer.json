@@ -1,0 +1,18 @@
+{
+    "name": "hexters/rolevel",
+    "description": "Role & permissions system for laravel 6",
+    "keywords": ["Laravel", "Roles", "Laravel Group", "Laravel Menus", "Laravel Roles", "Laravel Permission"],
+    "license" : "MIT",
+    "authors": [
+        {
+            "name": "saifullah",
+            "email": "hexters@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Hexters\\Rolevel\\": "src/"
+        }
+    }
+}
