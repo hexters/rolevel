@@ -37,7 +37,9 @@ class RolevelServiceProvider extends ServiceProvider {
         $this->mergeConfigFrom(
             __DIR__ . '/../Config/rolevel.php', 'rolevel'
         );
-        
+
+        $this->loadRoutesFrom(__DIR__ . '/../Routes/routes.php');
+        $this->loadViewsFrom(__DIR__ . '/../Views/', 'rolevel');
 
         /**
          * Gate for access permission
