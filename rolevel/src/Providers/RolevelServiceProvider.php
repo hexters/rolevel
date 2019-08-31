@@ -27,11 +27,17 @@ class RolevelServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
+
+        if(!is_dir(base_path('/resources/views/vendor/rolevel'))) {
+            @mkdir(base_path('/resources/views/vendor/rolevel'));
+        }
+
         $this->publishes([
             __DIR__ . '/../Config/rolevel.php' => config_path('rolevel.php'),
             __DIR__ . '/../Migrations/' => database_path('migrations'),
             __DIR__ . '/../Models/' => base_path('/app'),
-            __DIR__ . '/../Roles/' => app_path('/Roles')
+            __DIR__ . '/../Roles/' => app_path('/Roles'),
+            __DIR__ . '/../Views/rolevel' => base_path('/resources/views/vendor/rolevel')
         ], 'rolevel');
         
         $this->mergeConfigFrom(
@@ -50,7 +56,7 @@ class RolevelServiceProvider extends ServiceProvider {
                 foreach($permission->keys() as $key) {
                     Gate::define($key, function(User $user) use ($key) {
                         foreach($user->roles as $role) {
-                            return in_array($key, $role->permissions->toArray());
+                            return in_array($key, $role->permissions);
                         }
                     });
                 }

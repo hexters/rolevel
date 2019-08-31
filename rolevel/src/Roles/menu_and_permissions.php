@@ -29,16 +29,11 @@
 				[
 					'display' => 'Assign Permissions',
 					'uniqkey' => 'module.access.assign.permission',
-					'url' => null,
+					'url' => '/admin/roles',
 					'classId' => '',
 					'className' => '',
 					'classIcon' => '',
 					'permissions' => [
-						[
-							'uniqkey' => 'module.access.assign.permission.index',
-							'name' => 'List of roles',
-							'description' => 'Module for showing all roles in application'
-						],
 						[
 							'uniqkey' => 'module.access.assign.permission.detail',
 							'name' => 'Show detail role',
