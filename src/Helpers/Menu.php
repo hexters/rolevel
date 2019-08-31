@@ -28,4 +28,9 @@ class Menu extends Base {
     public function keys() {
         return $this->findKeys($this->file());
     }
+
+    public function menus() {
+        return $this->file();
+    }
+
 }

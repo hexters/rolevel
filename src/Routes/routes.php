@@ -7,4 +7,5 @@
         ], 
         function() {
             Route::get('/roles', 'RolevelAssignController@assign');
+            Route::get('/roles/{id}', 'RolevelAssignController@detail');
         });
