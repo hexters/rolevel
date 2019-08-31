@@ -28,14 +28,22 @@
 			'childs' => [
 				[
 					'display' => 'Assign Permissions',
-					'uniqkey' => 'module.access.assign.permission',
+					'uniqkey' => 'module.access.assign.permission.index',
 					'url' => '/admin/roles',
 					'classId' => '',
 					'className' => '',
 					'classIcon' => '',
+					/*
+					|--------------------------------------------------------------------------
+					| Property Permission
+					|--------------------------------------------------------------------------
+					|
+					| You can set for rest full method Show, Update, Edit, Delete, and Store
+					|
+					*/
 					'permissions' => [
 						[
-							'uniqkey' => 'module.access.assign.permission.detail',
+							'uniqkey' => 'module.access.assign.permission.show',
 							'name' => 'Show detail role',
 							'description' => 'Module for assign permission to any module'
 						]
