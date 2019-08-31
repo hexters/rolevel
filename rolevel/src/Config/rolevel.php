@@ -7,8 +7,6 @@
             'roles' => App\Role::class
         ],
 
-        'show_uniqkey' => in_array(env('APP_ENV'), ['local', 'staging']),
-
         /*
          | --------------------------------------
          | Assign configuration menu
@@ -21,6 +19,8 @@
         'template' => [
             'extends' => 'layouts.app',
             'content' => 'content'
-        ]
+        ],
+
+        'show_uniqkey' => in_array(env('APP_ENV'), ['local', 'staging']),
 
     ];
