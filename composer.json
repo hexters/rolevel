@@ -11,6 +11,9 @@
     ],
     "require": {},
     "autoload": {
+        "files": [
+            "src/Helpers/Helper.php"
+        ],
         "psr-4": {
             "Hexters\\Rolevel\\": "src/"
         }
