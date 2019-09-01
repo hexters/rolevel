@@ -31,7 +31,7 @@ class User extends Authenticatable {
     . . .
 ```
 
-Install database
+Installing database
 ```
 $ php artisan migrate
 ```
