@@ -156,8 +156,15 @@ If you have provide access to the button and any condition you can set, for exam
 @can('module.access.assign.permission.store')
   <a href="{{ url('/admin/account/create') }}">Create Account</a>
 @endcan
+
+// OR
+
+if($user->can('module.access.assign.permission.store')) {
+  // Condition
+}
+
 ```
-You can check [this link](https://laravel.com/docs/5.8/authorization#via-blade-templates) 
+You can check [this link](https://laravel.com/docs/5.8/authorization#via-blade-templates) and [this link](https://laravel.com/docs/5.8/authorization#via-the-user-model)
 
 Check config file in `config/rolevel.php` if you have change such as:
   * Model Role possition
