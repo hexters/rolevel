@@ -38,7 +38,7 @@ $ php artisan migrate
 
 ### Getting Started
 
-Open file menu & permission in folder `app/Roles/menu_and_permissions.php`. In this file you can set menu and permission for accessing your application module, for example.
+Open file menu & permission in folder `app/Roles/menu_and_permissions.php`. In this file you can set menu and permission to provide access to your application module, for example.
 ```
 <?php
 
