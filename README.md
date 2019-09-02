@@ -122,7 +122,7 @@ You should assign role to your User account before.
   $user->roles()->sync([ $role->id ]);
 ```
 
-In your controller you should declaration `Gate` to provide access to your module, for example
+In your any controller you should declaration `Gate` to provide access to your module, for example
 ```
 <?php
 
