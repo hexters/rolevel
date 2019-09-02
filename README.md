@@ -2,6 +2,9 @@
 
 Package for hendle role & permission in laravel
 
+### Require
+* Bootstrap 4
+
 ### Installation
 
 You can install this package via composer:
