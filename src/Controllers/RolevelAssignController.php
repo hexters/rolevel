@@ -19,7 +19,7 @@ class RolevelAssignController extends BaseController {
 
     public function assign () {
 
-        if (Gate::denies('module.access.assign.permission')) abort(403);
+        if (Gate::denies('module.access.assign.permission.index')) abort(403);
 
         $data['roles'] = $this->role->all();
         return view('rolevel::assign.index', $data);
@@ -27,7 +27,7 @@ class RolevelAssignController extends BaseController {
 
     public function detail($id) {
 
-        if (Gate::denies('module.access.assign.permission.detail')) abort(403);
+        if (Gate::denies('module.access.assign.permission.show')) abort(403);
 
         $data['role'] = $this->role->findOrFail($id);
         $data['menu'] = $this->menu;
@@ -36,7 +36,7 @@ class RolevelAssignController extends BaseController {
 
     public function assigned(Request $request, $id) {
 
-        if (Gate::denies('module.access.assign.permission.detail')) abort(403);
+        if (Gate::denies('module.access.assign.permission.show')) abort(403);
 
         $role = $this->role->findOrFail($id);
         $permissions = isset( $request->uniqkeys) ?  $request->uniqkeys : [];
