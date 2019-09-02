@@ -119,7 +119,7 @@ You should assign role to your User account before.
   $user = App\User::find(1);
   $role = App\Role::find(1);
 
-  $user->sync([ $role->id ]);
+  $user->roles()->sync([ $role->id ]);
 ```
 
 In your controller you should declaration `Gate` to provide access to your module, for example
