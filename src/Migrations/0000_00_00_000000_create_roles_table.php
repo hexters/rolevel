@@ -28,7 +28,8 @@ class CreateRolesTable extends Migration
         });
 
         $permission = new Permission;
-        Role::create([
+        $role = app(config('rolevel.models.roles'));
+        $role->create([
             'name' => 'Superadmin',
             'slug' => 'superadmin',
             'description' => '',
