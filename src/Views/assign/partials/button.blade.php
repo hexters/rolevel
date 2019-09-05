@@ -1,10 +1,10 @@
 @if(isset($menu['permissions']) && count($menu['permissions']) > 0)
-<a href="#" class="float-right" data-toggle="modal" data-target="#{{ str_slug($menu['uniqkey']) }}">
+<a href="#" class="float-right" data-toggle="modal" data-target="#{{ Str::slug($menu['uniqkey']) }}">
   Assign Permission
 </a>
 @endif
 
-  <div class="modal fade" id="{{ str_slug($menu['uniqkey']) }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="{{ Str::slug($menu['uniqkey']) }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -25,11 +25,11 @@
 
                   @if(in_array($menu['uniqkey'], $permissions))
                     <div class="float-right">
-                      <input type="checkbox" id="permission-{{ str_slug($item['uniqkey']) }}" name="uniqkeys[]" {{ in_array($item['uniqkey'], $permissions) ? 'checked' : '' }} value="{{ $item['uniqkey'] }}">
+                      <input type="checkbox" id="permission-{{ Str::slug($item['uniqkey']) }}" name="uniqkeys[]" {{ in_array($item['uniqkey'], $permissions) ? 'checked' : '' }} value="{{ $item['uniqkey'] }}">
                     </div>
                   @endif
 
-                  <label style="cursor:pointer;" for="permission-{{ str_slug($item['uniqkey']) }}">
+                  <label style="cursor:pointer;" for="permission-{{ Str::slug($item['uniqkey']) }}">
                     <div>
                       <strong>{{ $item['name'] }}</strong>
                     </div>
