@@ -5,7 +5,7 @@
 
 <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col-lg-6">
+    <div class="col-lg-10">
       
       @php 
         $html = '';
