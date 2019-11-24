@@ -10,7 +10,7 @@ class Menu extends Base {
         $subKeys = [];
         foreach($menus as $menu) {
             if(isset($menu['uniqkey'])) {
-                $keys[] = $key['uniqkey'];
+                $keys[] = $menu['uniqkey'];
             }
 
             if(isset($menu['childs'])) {
