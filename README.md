@@ -12,7 +12,7 @@ You can install this package via composer:
 $ composer require hexters/rolevel
 ```
 
-Publish vendor from Rolevel
+Publish vendor
 ```
 $ php artisan vendor:publish --tag=rolevel
 ```
@@ -34,7 +34,7 @@ class User extends Authenticatable {
     . . .
 ```
 
-Installing database
+Migrate rolevel database
 ```
 $ php artisan migrate
 ```
@@ -48,7 +48,7 @@ Open file menu & permission in folder `app/Roles/menu_and_permissions.php`. In t
   return [
     [
       'display' => 'Menu Access', // display name
-      'uniqkey' => 'module.access.index', // must uniq
+      'gate' => 'module.access.index', // must uniq
       'url' => null, // URL can set null if menu have submenu
       'classId' => '', // id attribute
       'className' => '', // class style attribute
@@ -60,7 +60,7 @@ Open file menu & permission in folder `app/Roles/menu_and_permissions.php`. In t
       'childs' => [
         [
           'display' => 'Assign Permissions',
-          'uniqkey' => 'module.access.assign.permission.index',
+          'gate' => 'module.access.assign.permission.index',
           'url' => '/admin/assign/permission',
           'classId' => '',
           'className' => '',
@@ -68,7 +68,7 @@ Open file menu & permission in folder `app/Roles/menu_and_permissions.php`. In t
 
           'permissions' => [
             [
-              'uniqkey' => 'module.access.assign.permission.show',
+              'gate' => 'module.access.assign.permission.show',
               'name' => 'Detail Permissions', // title
               'description' => 'Show detail for permission' // info description
             ],
@@ -99,7 +99,7 @@ After that please put script in your master layout, for showing menu access.
       $viewMenu = function($menus) use (&$viewMenu, $permissions) {
           $html = '';
           foreach($menus as $menu) {
-              if(in_array($menu['uniqkey'], $permissions)) {
+              if(in_array($menu['gate'], $permissions)) {
                   $html .= view('vendor.rolevel.menu', ['menu' => $menu, 'view' => $viewMenu]);
               }
           }
@@ -122,7 +122,7 @@ You should assign role to your User account before.
   $user = App\User::find(1);
   $role = App\Role::find(1);
 
-  $user->roles()->sync([ $role->id ]);
+  $user->roles()->sync([ $role->id ], false);
 ```
 
 In your any controller you should declaration `Gate` to provide access to your module, for example
@@ -131,9 +131,8 @@ In your any controller you should declaration `Gate` to provide access to your m
 
 namespace App\Http\Controllers;
 
-use Gate;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class MenuAccessController extends Controller {
 
@@ -145,7 +144,7 @@ class MenuAccessController extends Controller {
     public function index()
     {
       /**
-      * Get module.access.assign.permission.index from uniqkey in file menu_and_permissions.php
+      * Get module.access.assign.permission.index from gate in file menu_and_permissions.php
       */
       if(Gate::denies('module.access.assign.permission.index')) abort(403);
 
@@ -154,7 +153,7 @@ class MenuAccessController extends Controller {
 
     . . .
 ```
-If you have provide access to the button and any condition you can set, for example
+In your blade
 ```
 @can('module.access.assign.permission.store')
   <a href="{{ url('/admin/account/create') }}">Create Account</a>

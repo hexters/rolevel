@@ -3,7 +3,7 @@
 	return [
 		[
 			'display' => ' Module Access',
-			'uniqkey' => 'module.access',
+			'gate' => 'module.access',
 			'url' => null,
 			'classId' => '',
 			'className' => '',
@@ -28,7 +28,7 @@
 			'childs' => [
 				[
 					'display' => 'Assign Permissions',
-					'uniqkey' => 'module.access.assign.permission.index',
+					'gate' => 'module.access.assign.permission.index',
 					'url' => '/admin/roles',
 					'classId' => '',
 					'className' => '',
@@ -43,7 +43,7 @@
 					*/
 					'permissions' => [
 						[
-							'uniqkey' => 'module.access.assign.permission.show',
+							'gate' => 'module.access.assign.permission.show',
 							'name' => 'Show detail role',
 							'description' => 'Module for assign permission to any module'
 						]

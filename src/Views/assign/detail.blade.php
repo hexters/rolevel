@@ -15,12 +15,12 @@
           foreach($menus as $menu) {
             $buttonAssign = view('rolevel::assign.partials.button', ['menu' => $menu, 'permissions' => $permissions]);
             $html .= '<li>';
-            $checked = in_array($menu['uniqkey'], $permissions) ? 'checked' : '';
-            $html .= '<input type="checkbox" name="uniqkeys[]" ' . $checked . ' value="' . $menu['uniqkey'] . '" /> ';
+            $checked = in_array($menu['gate'], $permissions) ? 'checked' : '';
+            $html .= '<input type="checkbox" name="gates[]" ' . $checked . ' value="' . $menu['gate'] . '" /> ';
             $html .= $menu['display'] . $buttonAssign;
-            if(config('rolevel.show_uniqkey')) {
+            if(config('rolevel.show_gate')) {
               $html .= '<div class="bg-dark text-light p-2">
-                        <small>' . $menu['uniqkey'] . '</small>
+                        <small>' . $menu['gate'] . '</small>
                     </div>';
             }
 

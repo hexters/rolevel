@@ -39,7 +39,7 @@ class RolevelAssignController extends BaseController {
         if (Gate::denies('module.access.assign.permission.show')) abort(403);
 
         $role = $this->role->findOrFail($id);
-        $permissions = isset( $request->uniqkeys) ?  $request->uniqkeys : [];
+        $permissions = isset( $request->gates) ?  $request->gates : [];
         $role->update([
             'permissions' => $permissions
         ]);

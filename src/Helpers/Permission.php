@@ -8,11 +8,11 @@ class Permission extends Base {
         $permissions = [];
         $childPermissions = [];
         foreach($menus as $menu) {
-            $permissions[] = $menu['uniqkey'];
+            $permissions[] = $menu['gate'];
             if(isset($menu['permissions']) && is_array($menu['permissions'])) {
                 foreach($menu['permissions'] as $permission) {
-                    if(isset($permission['uniqkey'])) {
-                        $permissions[] = $permission['uniqkey'];
+                    if(isset($permission['gate'])) {
+                        $permissions[] = $permission['gate'];
                     }
                 }
             }

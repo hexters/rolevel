@@ -21,6 +21,6 @@
             'content' => 'content'
         ],
 
-        'show_uniqkey' => in_array(env('APP_ENV'), ['local', 'staging']),
+        'show_gate' => in_array(env('APP_ENV'), ['local', 'staging']),
 
     ];
