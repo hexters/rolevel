@@ -1,8 +1,8 @@
 {
-    "name": "hexters/esms-notification-channel",
-    "description": "Laravel notification channel for https://esms.com.my",
-    "keywords": ["SMS", "ESMS", "SMS Gateway", "Message"],
-    "license": "MIT",
+    "name": "hexters/rolevel",
+    "description": "Role & permissions system for laravel",
+    "keywords": ["Laravel", "Roles", "Laravel Group", "Laravel Menus", "Laravel Roles", "Laravel Permission"],
+    "license" : "MIT",
     "authors": [
         {
             "name": "saifullah",
@@ -11,8 +11,21 @@
     ],
     "require": {},
     "autoload": {
+        "files": [
+            "src/Helpers/Helper.php"
+        ],
         "psr-4": {
-            "Hexters\\Esms\\": "src/"
+            "Hexters\\Rolevel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hexters\\Rolevel\\Providers\\RolevelServiceProvider"
+            ],
+            "aliases": {
+                
+            }
         }
     }
 }
